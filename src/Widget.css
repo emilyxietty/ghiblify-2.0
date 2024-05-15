@@ -1,0 +1,35 @@
+.Date, .Time {
+    padding: 0.3rem 2rem 0.3rem 2rem;
+    /* position: fixed; */
+    /* padding: 1rem; */
+}
+
+
+.Date {
+    
+}
+
+.Time {
+
+}
+  
+
+/* .widget_box {
+    position:relative;
+    width:100%;
+    text-align: center;
+} */
+
+/* .widget_text {
+    position: absolute;
+    top: 60%;
+  left: 7%;
+  z-index: 5;
+  width: 30%;
+  opacity: 0;
+  display: flex;
+} */
+/* .DropArea {
+    height: 100%;
+    width: 100%;
+} */

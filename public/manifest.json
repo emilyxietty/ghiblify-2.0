@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "ghiblify",
+    "version": "1.0",
+    "description": "ghiblify, new tab chome extension built with React",
+    "action": {
+      "default_popup": "index.html"
+    },
+    "chrome_url_overrides": {
+      "newtab": "index.html"
+    },
+    "permissions": [
+      "storage"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "icons": {
+      "48": "soot48.png",
+      "128": "soot128.png"
+    },
+    "icons": [
+        {
+            "src": "soot48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+        "src": "soot128.png",
+        "sizes": "128x128",
+        "type": "image/png"
+        }
+    ]
+  }
+  
