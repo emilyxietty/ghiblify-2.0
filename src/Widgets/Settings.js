@@ -1,8 +1,8 @@
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Box, Button, Modal, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import './App.css';
-import './Settings.css';
+import '../css/App.css';
+import '../css/Settings.css';
 
 
 const SettingsModal = () => {
