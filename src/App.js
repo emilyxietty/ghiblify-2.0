@@ -14,6 +14,7 @@ import SettingsModal from './Widgets/Settings.js';
 
 // import {DndContext} from '@dnd-kit/core';
 import AvatarWidget from './Widgets/Avatar.js';
+import InfoWidget from './Widgets/Info.js';
 
 import TimeWidget from './Widgets/Time.js'; // check the path and no curly braces
 
@@ -37,6 +38,7 @@ function App() {
             <DateWidget />
             {/* <AvatarWidget /> */}
             <AvatarWidget index={0} />
+            <InfoWidget MOVIE_ID={13} />
             {/* <DroppableWidget>Droppable Area</DroppableWidget> */}
         {/* </WidgetContainer> */}
         {/* <h1 style={{ color: theme.palette.primary.main }}>Hello World</h1> */}
