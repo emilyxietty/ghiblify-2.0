@@ -2,6 +2,18 @@
     display: inline-block;
 }
 
+.widget_container:hover {
+    /* cursor: move; */
+    cursor: grab;
+    /* cursor: -moz-grab; */
+    cursor: -webkit-grab;
+}
+
+.widget_container:active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+}
+
 .Date,
 .Time {
     padding: 0.3rem 2rem 0.3rem 2rem;
@@ -19,6 +31,7 @@
 .Avatar {
     max-width: 8rem;
     max-height: auto;
+    -webkit-user-drag: none;
 }
 
 
