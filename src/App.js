@@ -1,24 +1,17 @@
-import React, { useState } from "react";
+import { useTheme } from "@mui/material/styles";
+import React from "react";
+import Background from "./Bg.js";
 import "./css/App.css";
 import "./css/Widget.css";
-import DateWidget from "./Widgets/Date.js";
-import { useTheme } from "@mui/material/styles";
-import Background from "./Bg.js";
-import SettingsModal from "./Widgets/Settings.js";
 import AvatarWidget from "./Widgets/Avatar.js";
+import DateWidget from "./Widgets/Date.js";
 import InfoWidget from "./Widgets/Info.js";
-import Draggable from "react-draggable";
+import SettingsModal from "./Widgets/Settings.js";
 
 import TimeWidget from "./Widgets/Time.js";
 
 function App() {
   const theme = useTheme();
-  const [timePosition, setTimePosition] = useState({ x: 0, y: 0 });
-
-  const dragHandler = (e, data) => {
-    setTimePosition({ x: data.x, y: data.y });
-    console.log("New position:", { x: data.x, y: data.y });
-  };
 
   return (
     <div className="App">
@@ -28,14 +21,7 @@ function App() {
         <div></div>
       </div>
       <div className="Widgets light">
-        <Draggable bounds="parent" onStop={dragHandler}>
-          <div>
-            <TimeWidget />
-          </div>
-        </Draggable>
-        <p>
-          Time Widget Position: x: {timePosition.x}, y: {timePosition.y}
-        </p>
+        <TimeWidget />
         <DateWidget />
         <AvatarWidget index={0} />
         <InfoWidget MOVIE_ID={13} />
