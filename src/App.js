@@ -1,49 +1,46 @@
-// src/App.js
-import React from 'react';
-import './css/App.css';
-import './css/Widget.css';
-import DateWidget from './Widgets/Date.js'; // check the path and no curly braces
-// import bg from './img/bg1.jpg';
-import { useTheme } from '@mui/material/styles';
-import Background from './Bg.js';
-import SettingsModal from './Widgets/Settings.js';
-// import WidgetContainer from './Widget.js';
-// import { DraggableWidget, DroppableWidget, WidgetContainer } from './Widget';
+import React, { useState } from "react";
+import "./css/App.css";
+import "./css/Widget.css";
+import DateWidget from "./Widgets/Date.js";
+import { useTheme } from "@mui/material/styles";
+import Background from "./Bg.js";
+import SettingsModal from "./Widgets/Settings.js";
+import AvatarWidget from "./Widgets/Avatar.js";
+import InfoWidget from "./Widgets/Info.js";
+import Draggable from "react-draggable";
 
-// import { Widget, WidgetContainer } from './Widget.js';
-
-// import {DndContext} from '@dnd-kit/core';
-import AvatarWidget from './Widgets/Avatar.js';
-import InfoWidget from './Widgets/Info.js';
-
-import TimeWidget from './Widgets/Time.js'; // check the path and no curly braces
+import TimeWidget from "./Widgets/Time.js";
 
 function App() {
-    const theme = useTheme();
+  const theme = useTheme();
+  const [timePosition, setTimePosition] = useState({ x: 0, y: 0 });
+
+  const dragHandler = (e, data) => {
+    setTimePosition({ x: data.x, y: data.y });
+    console.log("New position:", { x: data.x, y: data.y });
+  };
+
   return (
     <div className="App">
-        <Background/>
-    <div className="Header">
+      <Background />
+      <div className="Header">
         <SettingsModal />
-        {/* <WidgetContainer /> */}
-        <div>
+        <div></div>
+      </div>
+      <div className="Widgets light">
+        <Draggable bounds="parent" onStop={dragHandler}>
+          <div>
+            <TimeWidget />
+          </div>
+        </Draggable>
+        <p>
+          Time Widget Position: x: {timePosition.x}, y: {timePosition.y}
+        </p>
+        <DateWidget />
+        <AvatarWidget index={0} />
+        <InfoWidget MOVIE_ID={13} />
+      </div>
     </div>
-    </div>
-    <div className="Widgets light">
-        {/* <WidgetContainer>Test</WidgetContainer> */}
-        {/* <WidgetContainer> */}
-        <TimeWidget />
-      {/* </WidgetContainer> */}
-            {/* <TimeWidget /> */}
-            <DateWidget />
-            {/* <AvatarWidget /> */}
-            <AvatarWidget index={0} />
-            <InfoWidget MOVIE_ID={13} />
-            {/* <DroppableWidget>Droppable Area</DroppableWidget> */}
-        {/* </WidgetContainer> */}
-        {/* <h1 style={{ color: theme.palette.primary.main }}>Hello World</h1> */}
-    </div>
-</div>
   );
 }
 
