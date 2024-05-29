@@ -1,8 +1,8 @@
 import React from "react";
 import Draggable from "react-draggable";
-import "../css/Widget.css";
-import chi from "../img/avatars/chi.gif";
-import Dragger from "./dragger.js";
+import "../../css/Widget.css";
+import chi from "../../img/avatars/chi.gif";
+import Dragger from "../dragger.js";
 
 const avatars = [
   { src: chi, alt: "Chi Avatar" },

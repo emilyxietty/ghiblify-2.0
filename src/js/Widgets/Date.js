@@ -1,6 +1,6 @@
 import React from "react";
 import Draggable from "react-draggable";
-import Dragger from "./dragger.js";
+import Dragger from "../dragger.js";
 
 function DateWidget() {
   //   const [datePosition, setDatePosition] = useState({ x: 0, y: 0 });

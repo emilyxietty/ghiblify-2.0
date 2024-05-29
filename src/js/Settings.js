@@ -1,9 +1,8 @@
-import SettingsIcon from '@mui/icons-material/Settings';
-import { Box, Button, Modal, Typography } from '@mui/material';
-import React, { useState } from 'react';
-import '../css/App.css';
-import '../css/Settings.css';
-
+import SettingsIcon from "@mui/icons-material/Settings";
+import { Box, Button, Modal, Typography } from "@mui/material";
+import React, { useState } from "react";
+import "../css/App.css";
+import "../css/Settings.css";
 
 const SettingsModal = () => {
   const [open, setOpen] = useState(false);
@@ -18,14 +17,19 @@ const SettingsModal = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen} startIcon={<SettingsIcon/>} className="light button" size="large"></Button>
+      <Button
+        onClick={handleOpen}
+        startIcon={<SettingsIcon />}
+        className="light button"
+        size="large"
+      ></Button>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="settings-modal-title"
         aria-describedby="settings-modal-description"
       >
-        <Box className='settings-modal-container'>
+        <Box className="settings-modal-container">
           <Typography id="settings-modal-title" variant="h6" component="h2">
             Settings
           </Typography>

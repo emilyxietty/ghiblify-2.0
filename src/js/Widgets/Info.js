@@ -1,7 +1,7 @@
 import React from "react";
 import Draggable from "react-draggable";
-import "../css/Widget.css";
-import Dragger from "./dragger.js";
+import "../../css/Widget.css";
+import Dragger from "../dragger.js";
 
 const infos = [
   {

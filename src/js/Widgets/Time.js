@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Draggable from "react-draggable";
-import Dragger from "./dragger.js";
+import Dragger from "../dragger.js";
 
 function TimeWidget() {
   const [timePosition, dragHandler] = Dragger({ x: 0, y: 0 }, "Time");
