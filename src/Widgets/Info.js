@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Draggable from "react-draggable";
 import "../css/Widget.css";
+import Dragger from "./dragger.js";
 
 const infos = [
   {
@@ -16,12 +17,7 @@ const infos = [
 ];
 
 const InfoWidget = ({ MOVIE_ID }) => {
-  const [infoPosition, setInfoPosition] = useState({ x: 0, y: 0 });
-
-  const dragHandler = (e, data) => {
-    setInfoPosition({ x: data.x, y: data.y });
-    console.log("New position:", { x: data.x, y: data.y });
-  };
+  const [infoPosition, dragHandler] = Dragger({ x: 0, y: 0 }, "Info");
 
   const selectedMovie = infos.find((movie) => movie.MOVIE_ID === MOVIE_ID);
 
@@ -31,7 +27,7 @@ const InfoWidget = ({ MOVIE_ID }) => {
 
   return (
     <Draggable bounds="parent" onStop={dragHandler}>
-      <div className="widget_container">
+      <div className="Info widget_container">
         <p>{selectedMovie.QUOTE}</p>
         <p>{selectedMovie.TITLE_EN}</p>
         <p>{selectedMovie.TITLE_JP}</p>

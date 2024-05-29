@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Draggable from "react-draggable";
 import "../css/Widget.css";
 import chi from "../img/avatars/chi.gif";
-
-// import './Widget.css';
+import Dragger from "./dragger.js";
 
 const avatars = [
   { src: chi, alt: "Chi Avatar" },
@@ -11,12 +10,7 @@ const avatars = [
 ];
 
 const AvatarWidget = ({ index }) => {
-  const [avatarPosition, setAvatarPosition] = useState({ x: 0, y: 0 });
-
-  const dragHandler = (e, data) => {
-    setAvatarPosition({ x: data.x, y: data.y });
-    console.log("New position:", { x: data.x, y: data.y });
-  };
+  const [avatarPosition, dragHandler] = Dragger({ x: 0, y: 0 }, "Avatar");
 
   const selectedAvatar = avatars[index];
 

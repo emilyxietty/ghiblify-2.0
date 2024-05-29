@@ -1,15 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Draggable from "react-draggable";
+import Dragger from "./dragger.js";
 
 function DateWidget() {
-  // Creating an instance of Intl.DateTimeFormat with weekday and day options
-
-  const [datePosition, setDatePosition] = useState({ x: 0, y: 0 });
-
-  const dragHandler = (e, data) => {
-    setDatePosition({ x: data.x, y: data.y });
-    console.log("New date position:", { x: data.x, y: data.y });
-  };
+  //   const [datePosition, setDatePosition] = useState({ x: 0, y: 0 });
+  const [datePosition, dragHandler] = Dragger({ x: 0, y: 0 }, "Date");
 
   const currentDate = new Date();
   const options = {

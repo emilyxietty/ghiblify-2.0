@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
-// import './Widget.css';
 import Draggable from "react-draggable";
+import Dragger from "./dragger.js";
 
 function TimeWidget() {
-
-  const [timePosition, setTimePosition] = useState({ x: 0, y: 0 });
-
-  const dragHandler = (e, data) => {
-    setTimePosition({ x: data.x, y: data.y });
-    console.log("New position:", { x: data.x, y: data.y });
-  };
-
+  const [timePosition, dragHandler] = Dragger({ x: 0, y: 0 }, "Time");
   const [currentTime, setCurrentTime] = useState(formatTime(new Date()));
-
 
   useEffect(() => {
     const timer = setInterval(() => {
