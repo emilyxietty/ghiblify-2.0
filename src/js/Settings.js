@@ -1,8 +1,14 @@
 import SettingsIcon from "@mui/icons-material/Settings";
 import { Box, Button, Modal, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import { useAtom } from "jotai";
-import { settingsAtom } from "../state/atoms";
+// import {
+//   avatarAtom,
+//   dateAtom,
+//   infoAtom,
+//   pomodoroAtom,
+import { avatarAtom, dateAtom, infoAtom, timeAtom } from "../state/atoms";
+
 import "../css/App.css";
 import "../css/Settings.css";
 import FormGroup from "@mui/material/FormGroup";
@@ -10,8 +16,12 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
 const SettingsModal = () => {
-  const [open, setOpen] = useState(false);
-  const [settings, setSettings] = useAtom(settingsAtom);
+  const [open, setOpen] = React.useState(false);
+  const [avatar, setAvatar] = useAtom(avatarAtom);
+  const [date, setDate] = useAtom(dateAtom);
+  const [info, setInfo] = useAtom(infoAtom);
+  // const [pomodoro, setPomodoro] = useAtom(pomodoroAtom);
+  const [time, setTime] = useAtom(timeAtom);
 
   const handleOpen = () => {
     setOpen(true);
@@ -21,8 +31,8 @@ const SettingsModal = () => {
     setOpen(false);
   };
 
-  const handleCheckboxChange = (setting) => (e) => {
-    setSettings({ ...settings, [setting]: e.target.checked });
+  const handleCheckboxChange = (setter, currentValue) => (event) => {
+    setter({ ...currentValue, toggle: event.target.checked });
   };
 
   return (
@@ -48,8 +58,8 @@ const SettingsModal = () => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={settings.avatar}
-                    onChange={handleCheckboxChange("avatar")}
+                    checked={avatar.toggle}
+                    onChange={handleCheckboxChange(setAvatar, avatar)}
                   />
                 }
                 label="Avatar"
@@ -57,8 +67,8 @@ const SettingsModal = () => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={settings.date}
-                    onChange={handleCheckboxChange("date")}
+                    checked={date.toggle}
+                    onChange={handleCheckboxChange(setDate, date)}
                   />
                 }
                 label="Date"
@@ -66,26 +76,26 @@ const SettingsModal = () => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={settings.info}
-                    onChange={handleCheckboxChange("info")}
+                    checked={info.toggle}
+                    onChange={handleCheckboxChange(setInfo, info)}
                   />
                 }
                 label="Info"
               />
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={
                   <Checkbox
-                    checked={settings.pomodoro}
-                    onChange={handleCheckboxChange("pomodoro")}
+                    checked={pomodoro.toggle}
+                    onChange={handleCheckboxChange(setPomodoro, pomodoro)}
                   />
                 }
                 label="Pomodoro"
-              />
+              /> */}
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={settings.time}
-                    onChange={handleCheckboxChange("time")}
+                    checked={time.toggle}
+                    onChange={handleCheckboxChange(setTime, time)}
                   />
                 }
                 label="Time"

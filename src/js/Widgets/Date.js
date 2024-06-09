@@ -1,9 +1,16 @@
 import React from "react";
 import Draggable from "react-draggable";
-import Dragger from "../dragger.js";
+import { useAtom } from "jotai";
+import { dateAtom } from "../../state/atoms.js";
 
 function DateWidget() {
-  const [datePosition, dragHandler] = Dragger({ x: 0, y: 0 }, "Date");
+  const [date, setDate] = useAtom(dateAtom);
+
+  const dragHandler = (e, data) => {
+    if (date.toggle) {
+      setDate({ ...date, xPos: data.x, yPos: data.y });
+    }
+  };
 
   const currentDate = new Date();
   const options = {
@@ -34,7 +41,14 @@ function DateWidget() {
   const formattedDateWithSuffix = formattedDate.replace(/\d+/, daySuffix);
 
   return (
-    <Draggable bounds="parent" onStop={dragHandler}>
+    <Draggable
+      bounds="parent"
+      onStop={dragHandler}
+      defaultPosition={{
+        x: date.xPos,
+        y: date.yPos,
+      }}
+    >
       <div className="Date widget_container subtitle shadow">{`${formattedDateWithSuffix}`}</div>
     </Draggable>
   );

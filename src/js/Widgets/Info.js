@@ -1,7 +1,8 @@
 import React from "react";
 import Draggable from "react-draggable";
 import "../../css/Widget.css";
-import Dragger from "../dragger.js";
+import { infoAtom } from "../../state/atoms";
+import { useAtom } from "jotai";
 
 const infos = [
   {
@@ -17,7 +18,13 @@ const infos = [
 ];
 
 const InfoWidget = ({ MOVIE_ID }) => {
-  const [infoPosition, dragHandler] = Dragger({ x: 0, y: 0 }, "Info");
+  const [info, setInfo] = useAtom(infoAtom);
+
+  const dragHandler = (e, data) => {
+    if (info.toggle) {
+      setInfo({ ...info, xPos: data.x, yPos: data.y });
+    }
+  };
 
   const selectedMovie = infos.find((movie) => movie.MOVIE_ID === MOVIE_ID);
 
@@ -26,7 +33,14 @@ const InfoWidget = ({ MOVIE_ID }) => {
   }
 
   return (
-    <Draggable bounds="parent" onStop={dragHandler}>
+    <Draggable
+      bounds="parent"
+      onStop={dragHandler}
+      defaultPosition={{
+        x: info.xPos,
+        y: info.yPos,
+      }}
+    >
       <div className="Info widget_container">
         <p>{selectedMovie.QUOTE}</p>
         <p>{selectedMovie.TITLE_EN}</p>
