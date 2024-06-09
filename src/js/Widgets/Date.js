@@ -3,7 +3,6 @@ import Draggable from "react-draggable";
 import Dragger from "../dragger.js";
 
 function DateWidget() {
-  //   const [datePosition, setDatePosition] = useState({ x: 0, y: 0 });
   const [datePosition, dragHandler] = Dragger({ x: 0, y: 0 }, "Date");
 
   const currentDate = new Date();
@@ -42,5 +41,3 @@ function DateWidget() {
 }
 
 export default DateWidget;
-
-// export default DateWidget;

@@ -34,32 +34,3 @@ function Dragger(initialPosition, className) {
 }
 
 export default Dragger;
-
-// import { useState } from "react";
-
-// function Dragger(initialPosition) {
-//   // Get the root font size in pixels
-//   const rootFontSize = parseFloat(
-//     getComputedStyle(document.documentElement).fontSize
-//   );
-
-//   // Convert initialPosition from pixels to rem
-//   const initialPositionRem = {
-//     x: initialPosition.x / rootFontSize,
-//     y: initialPosition.y / rootFontSize,
-//   };
-
-//   const [position, setPosition] = useState(initialPositionRem);
-
-//   const dragHandler = (e, data) => {
-//     // Convert data.x and data.y from pixels to rem
-//     const xRem = data.x / rootFontSize;
-//     const yRem = data.y / rootFontSize;
-//     setPosition({ x: xRem, y: yRem });
-//     console.log("New position:", { x: xRem, y: yRem });
-//   };
-
-//   return [position, dragHandler];
-// }
-
-// export default Dragger;
