@@ -10,7 +10,8 @@ const avatars = [
 ];
 
 const AvatarWidget = ({ index }) => {
-  const [avatarPosition, dragHandler] = Dragger({ x: 0, y: 0 }, "Avatar");
+  const [avatar, setAvatar] = useAtom(avatarAtom);
+  // const [avatarPosition, dragHandler] = Dragger({ x: 0, y: 0 }, "Avatar");
 
   const selectedAvatar = avatars[index];
 
