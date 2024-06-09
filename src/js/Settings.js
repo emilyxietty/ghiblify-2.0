@@ -3,6 +3,9 @@ import { Box, Button, Modal, Typography } from "@mui/material";
 import React, { useState } from "react";
 import "../css/App.css";
 import "../css/Settings.css";
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 const SettingsModal = () => {
   const [open, setOpen] = useState(false);
@@ -34,7 +37,13 @@ const SettingsModal = () => {
             Settings
           </Typography>
           <Typography id="settings-modal-description" sx={{ mt: 2 }}>
-            Insert Settings content here later
+            <FormGroup>
+              <FormControlLabel control={<Checkbox defaultChecked />} label="Avatar" />
+              <FormControlLabel control={<Checkbox defaultChecked />} label="Date" />
+              <FormControlLabel control={<Checkbox defaultChecked />} label="Info" />
+              <FormControlLabel control={<Checkbox defaultChecked />} label="Pomodoro" />
+              <FormControlLabel control={<Checkbox defaultChecked />} label="Time" />
+            </FormGroup>
           </Typography>
         </Box>
       </Modal>
