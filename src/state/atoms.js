@@ -2,20 +2,20 @@ import { atom } from "jotai";
 
 export const avatarAtomDefault = {
   toggle: true,
-  xPos: 0,
+  xPos: 10,
   yPos: 0,
 };
 
 export const dateAtomDefault = {
   toggle: true,
-  xPos: 0,
+  xPos: 400,
   yPos: 0,
 };
 
 export const infoAtomDefault = {
   toggle: true,
-  xPos: 0,
-  yPos: 0,
+  xPos: 400,
+  yPos: 500,
 };
 
 export const pomodoroAtomDefault = {
@@ -26,8 +26,8 @@ export const pomodoroAtomDefault = {
 
 export const timeAtomDefault = {
   toggle: true,
-  xPos: 0,
-  yPos: 0,
+  xPos: 400,
+  yPos: 300,
 };
 
 export const avatarAtom = atom(avatarAtomDefault);

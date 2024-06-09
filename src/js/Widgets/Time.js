@@ -33,7 +33,7 @@ function TimeWidget() {
     <Draggable
       bounds="parent"
       onStop={dragHandler}
-      defaultPosition={{
+      position={{
         x: time.xPos,
         y: time.yPos,
       }}
