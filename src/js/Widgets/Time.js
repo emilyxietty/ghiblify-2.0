@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Draggable from "react-draggable";
-import { timeAtom, timePositionAtom } from "../../state/atoms";
+import { timeAtom } from "../../state/atoms";
 import { useAtom } from "jotai";
 
 function TimeWidget() {
@@ -8,7 +8,9 @@ function TimeWidget() {
   const [currentTime, setCurrentTime] = useState(formatTime(new Date()));
 
   const dragHandler = (e, data) => {
-    setTime({ ...time, xPos: data.x, yPos: data.y });
+    if (time.toggle) {
+      setTime({ ...time, xPos: data.x, yPos: data.y });
+    }
   };
 
   useEffect(() => {

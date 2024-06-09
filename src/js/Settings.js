@@ -2,11 +2,6 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { Box, Button, Modal, Typography } from "@mui/material";
 import React from "react";
 import { useAtom } from "jotai";
-// import {
-//   avatarAtom,
-//   dateAtom,
-//   infoAtom,
-//   pomodoroAtom,
 import { avatarAtom, dateAtom, infoAtom, timeAtom } from "../state/atoms";
 
 import "../css/App.css";
