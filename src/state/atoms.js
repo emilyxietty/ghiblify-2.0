@@ -1,31 +1,37 @@
 import { atom } from "jotai";
 
-export const avatarAtom = atom({
+export const avatarAtomDefault = {
   toggle: true,
-  xPos: 0,
+  xPos: 10,
   yPos: 0,
-});
+};
 
-export const dateAtom = atom({
+export const dateAtomDefault = {
   toggle: true,
-  xPos: 0,
+  xPos: 400,
   yPos: 0,
-});
+};
 
-export const infoAtom = atom({
+export const infoAtomDefault = {
   toggle: true,
-  xPos: 0,
-  yPos: 0,
-});
+  xPos: 400,
+  yPos: 500,
+};
 
-export const pomodoroAtom = atom({
+export const pomodoroAtomDefault = {
   toggle: true,
   xPos: 0,
   yPos: 0,
-});
+};
 
-export const timeAtom = atom({
+export const timeAtomDefault = {
   toggle: true,
-  xPos: 0,
-  yPos: 0,
-});
+  xPos: 400,
+  yPos: 300,
+};
+
+export const avatarAtom = atom(avatarAtomDefault);
+export const infoAtom = atom(infoAtomDefault);
+export const pomodoroAtom = atom(pomodoroAtomDefault);
+export const timeAtom = atom(timeAtomDefault);
+export const dateAtom = atom(dateAtomDefault);

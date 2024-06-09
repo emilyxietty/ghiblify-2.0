@@ -1,8 +1,27 @@
 import SettingsIcon from "@mui/icons-material/Settings";
-import { Box, Button, Modal, Typography } from "@mui/material";
-import React from "react";
+import {
+  Box,
+  Button,
+  Modal,
+  Typography,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
+import React, { useState } from "react";
 import { useAtom } from "jotai";
-import { avatarAtom, dateAtom, infoAtom, timeAtom } from "../state/atoms";
+import {
+  avatarAtom,
+  dateAtom,
+  infoAtom,
+  timeAtom,
+  avatarAtomDefault,
+  dateAtomDefault,
+  infoAtomDefault,
+  timeAtomDefault,
+} from "../state/atoms";
 
 import "../css/App.css";
 import "../css/Settings.css";
@@ -11,7 +30,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
 const SettingsModal = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
   const [avatar, setAvatar] = useAtom(avatarAtom);
   const [date, setDate] = useAtom(dateAtom);
   const [info, setInfo] = useAtom(infoAtom);
@@ -24,6 +44,21 @@ const SettingsModal = () => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleConfirmOpen = () => {
+    setConfirmOpen(true);
+  };
+
+  const handleConfirmClose = (confirm) => {
+    setConfirmOpen(false);
+    if (confirm) {
+      // Reset to default values
+      setAvatar(avatarAtomDefault);
+      setDate(dateAtomDefault);
+      setInfo(infoAtomDefault);
+      setTime(timeAtomDefault);
+    }
   };
 
   const handleCheckboxChange = (setter, currentValue) => (event) => {
@@ -96,9 +131,33 @@ const SettingsModal = () => {
                 label="Time"
               />
             </FormGroup>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleConfirmOpen}
+              sx={{ mt: 2 }}
+            >
+              Confirm Action
+            </Button>
           </Typography>
         </Box>
       </Modal>
+      <Dialog open={confirmOpen} onClose={() => handleConfirmClose(false)}>
+        <DialogTitle>Confirmation</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Are you sure you want to proceed?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => handleConfirmClose(false)} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={() => handleConfirmClose(true)} color="primary">
+            Confirm
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

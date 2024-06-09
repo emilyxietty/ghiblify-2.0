@@ -36,7 +36,7 @@ const InfoWidget = ({ MOVIE_ID }) => {
     <Draggable
       bounds="parent"
       onStop={dragHandler}
-      defaultPosition={{
+      position={{
         x: info.xPos,
         y: info.yPos,
       }}

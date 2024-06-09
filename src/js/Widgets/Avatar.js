@@ -12,6 +12,7 @@ const avatars = [
 
 const AvatarWidget = ({ index }) => {
   const [avatar, setAvatar] = useAtom(avatarAtom);
+  console.log(avatar);
 
   const dragHandler = (e, data) => {
     if (avatar.toggle) {
@@ -24,12 +25,12 @@ const AvatarWidget = ({ index }) => {
     <Draggable
       bounds="parent"
       onStop={dragHandler}
-      defaultPosition={{
+      position={{
         x: avatar.xPos,
         y: avatar.yPos,
       }}
     >
-      <div className="widget_container">
+      <div className="widget_container" id="avatar">
         <img
           src={selectedAvatar.src}
           alt={selectedAvatar.alt}

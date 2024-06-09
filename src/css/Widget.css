@@ -1,43 +1,44 @@
 .widget_container {
-    display: inline-block;
+  display: inline-block;
+  position: absolute;
 }
 
 .widget_container:hover {
-    /* cursor: move; */
-    cursor: grab;
-    /* cursor: -moz-grab; */
-    cursor: -webkit-grab;
+  /* cursor: move; */
+  cursor: grab;
+  /* cursor: -moz-grab; */
+  cursor: -webkit-grab;
 }
 
 .widget_container:active {
-    cursor: grabbing;
-    cursor: -webkit-grabbing;
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
 }
 
 .Date,
 .Time {
-    padding: 0.3rem 2rem 0.3rem 2rem;
-    /* position: fixed; */
-    /* padding: 1rem; */
-    /* width: 50%; */
-    display: inline-block;
+  padding: 0.3rem 2rem 0.3rem 2rem;
+  /* position: fixed; */
+  /* padding: 1rem; */
+  /* width: 50%; */
+  display: inline-block;
 }
 
+.Date {
+}
 
-.Date {}
-
-.Time {}
+.Time {
+}
 
 .Avatar {
-    max-width: 8rem;
-    max-height: auto;
-    -webkit-user-drag: none;
+  max-width: 8rem;
+  max-height: auto;
+  -webkit-user-drag: none;
 }
 
 .Info {
-    /* text-align: left; */
+  /* text-align: left; */
 }
-
 
 /* .widget_box {
     position:relative;

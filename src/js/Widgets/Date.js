@@ -44,7 +44,7 @@ function DateWidget() {
     <Draggable
       bounds="parent"
       onStop={dragHandler}
-      defaultPosition={{
+      position={{
         x: date.xPos,
         y: date.yPos,
       }}
