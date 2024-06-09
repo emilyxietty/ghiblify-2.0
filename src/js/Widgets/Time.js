@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Draggable from "react-draggable";
-import Dragger from "../dragger.js";
+import { timeAtom, timePositionAtom } from "../../state/atoms";
+import { useAtom } from "jotai";
 
 function TimeWidget() {
-  const [timePosition, dragHandler] = Dragger({ x: 0, y: 0 }, "Time");
+  const [time, setTime] = useAtom(timeAtom);
   const [currentTime, setCurrentTime] = useState(formatTime(new Date()));
+
+  const dragHandler = (e, data) => {
+    setTime({ ...time, xPos: data.x, yPos: data.y });
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -23,7 +28,14 @@ function TimeWidget() {
   }
 
   return (
-    <Draggable bounds="parent" onStop={dragHandler}>
+    <Draggable
+      bounds="parent"
+      onStop={dragHandler}
+      defaultPosition={{
+        x: time.xPos,
+        y: time.yPos,
+      }}
+    >
       <div className="Time widget_container title shadow">{`${currentTime}`}</div>
     </Draggable>
   );

@@ -2,13 +2,13 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { Box, Button, Modal, Typography } from "@mui/material";
 import React from "react";
 import { useAtom } from "jotai";
-import {
-  avatarAtom,
-  dateAtom,
-  infoAtom,
-  pomodoroAtom,
-  timeAtom,
-} from "./state/atoms";
+// import {
+//   avatarAtom,
+//   dateAtom,
+//   infoAtom,
+//   pomodoroAtom,
+import { avatarAtom, dateAtom, infoAtom, timeAtom } from "../state/atoms";
+
 import "../css/App.css";
 import "../css/Settings.css";
 import FormGroup from "@mui/material/FormGroup";
@@ -20,7 +20,7 @@ const SettingsModal = () => {
   const [avatar, setAvatar] = useAtom(avatarAtom);
   const [date, setDate] = useAtom(dateAtom);
   const [info, setInfo] = useAtom(infoAtom);
-  const [pomodoro, setPomodoro] = useAtom(pomodoroAtom);
+  // const [pomodoro, setPomodoro] = useAtom(pomodoroAtom);
   const [time, setTime] = useAtom(timeAtom);
 
   const handleOpen = () => {
@@ -82,7 +82,7 @@ const SettingsModal = () => {
                 }
                 label="Info"
               />
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={
                   <Checkbox
                     checked={pomodoro.toggle}
@@ -90,7 +90,7 @@ const SettingsModal = () => {
                   />
                 }
                 label="Pomodoro"
-              />
+              /> */}
               <FormControlLabel
                 control={
                   <Checkbox

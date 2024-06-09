@@ -23,7 +23,7 @@ function App() {
   const [avatar] = useAtom(avatarAtom);
   const [date] = useAtom(dateAtom);
   const [info] = useAtom(infoAtom);
-  const [pomodoro] = useAtom(pomodoroAtom);
+  // const [pomodoro] = useAtom(pomodoroAtom);
   const [time] = useAtom(timeAtom);
 
   return (
@@ -34,8 +34,8 @@ function App() {
         <div></div>
       </div>
       <div className="Widgets light">
-        {time.toggle && <TimeWidget />}
         {date.toggle && <DateWidget />}
+        {time.toggle && <TimeWidget />}
         {avatar.toggle && <AvatarWidget index={0} />}
         {info.toggle && <InfoWidget MOVIE_ID={13} />}
       </div>
