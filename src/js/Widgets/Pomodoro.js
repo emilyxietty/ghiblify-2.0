@@ -1,5 +1,11 @@
-import { Button, CircularProgress, Grid, TextField, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import {
+  Button,
+  CircularProgress,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
 
 const PomodoroWidget = () => {
   const [time, setTime] = useState(25 * 60); // Initial time (25 minutes)
@@ -12,11 +18,11 @@ const PomodoroWidget = () => {
     let interval;
     if (isRunning && time > 0) {
       interval = setInterval(() => {
-        setTime(prevTime => prevTime - 1);
+        setTime((prevTime) => prevTime - 1);
       }, 1000);
     } else if (time === 0) {
       // Toggle between work and break times
-      setIsWorkTime(prev => !prev);
+      setIsWorkTime((prev) => !prev);
       setTime(isWorkTime ? breakTime * 60 : workTime * 60);
     }
 
@@ -24,7 +30,7 @@ const PomodoroWidget = () => {
   }, [isRunning, time, isWorkTime, workTime, breakTime]);
 
   const handleStartStop = () => {
-    setIsRunning(prev => !prev);
+    setIsRunning((prev) => !prev);
   };
 
   const handleReset = () => {
@@ -35,13 +41,21 @@ const PomodoroWidget = () => {
 
   return (
     <div>
-      <Typography variant="h4">{isWorkTime ? 'Work Time' : 'Break Time'}</Typography>
+      <Typography variant="h4">
+        {isWorkTime ? "Work Time" : "Break Time"}
+      </Typography>
       <Grid container spacing={2} alignItems="center">
         <Grid item>
-          <Button variant="contained" color={isRunning ? 'secondary' : 'primary'} onClick={handleStartStop}>
-            {isRunning ? 'Pause' : 'Start'}
+          <Button
+            variant="contained"
+            color={isRunning ? "secondary" : "primary"}
+            onClick={handleStartStop}
+          >
+            {isRunning ? "Pause" : "Start"}
           </Button>
-          <Button variant="outlined" onClick={handleReset}>Reset</Button>
+          <Button variant="outlined" onClick={handleReset}>
+            Reset
+          </Button>
         </Grid>
         <Grid item>
           <TextField
@@ -68,7 +82,10 @@ const PomodoroWidget = () => {
         size={200}
         thickness={2}
       />
-      <Typography variant="h4">{`${Math.floor(time / 60)}:${('0' + (time % 60)).slice(-2)}`}</Typography>
+      <Typography variant="h4">{`${Math.floor(time / 60)}:${(
+        "0" +
+        (time % 60)
+      ).slice(-2)}`}</Typography>
     </div>
   );
 };

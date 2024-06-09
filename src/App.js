@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material/styles";
 import React from "react";
-import Background from "./js/Bg.js";
+import Background from "./js/Background.js";
 import "./css/App.css";
 import "./css/Widget.css";
 import AvatarWidget from "./js/Widgets/Avatar.js";
