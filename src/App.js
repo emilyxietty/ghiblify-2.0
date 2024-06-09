@@ -7,11 +7,14 @@ import AvatarWidget from "./js/Widgets/Avatar.js";
 import DateWidget from "./js/Widgets/Date.js";
 import InfoWidget from "./js/Widgets/Info.js";
 import SettingsModal from "./js/Settings.js";
+import { settingsAtom } from "./state/atoms";
+import { useAtom } from "jotai";
 
 import TimeWidget from "./js/Widgets/Time.js";
 
 function App() {
   const theme = useTheme();
+  const [settings] = useAtom(settingsAtom);
 
   return (
     <div className="App">
@@ -21,10 +24,10 @@ function App() {
         <div></div>
       </div>
       <div className="Widgets light">
-        <TimeWidget />
-        <DateWidget />
-        <AvatarWidget index={0} />
-        <InfoWidget MOVIE_ID={13} />
+        {settings.time && <TimeWidget />}
+        {settings.date && <DateWidget />}
+        {settings.avatar && <AvatarWidget index={0} />}
+        {settings.info && <InfoWidget MOVIE_ID={13} />}
       </div>
     </div>
   );

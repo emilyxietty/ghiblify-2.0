@@ -1,14 +1,17 @@
 import SettingsIcon from "@mui/icons-material/Settings";
 import { Box, Button, Modal, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { useAtom } from "jotai";
+import { settingsAtom } from "../state/atoms";
 import "../css/App.css";
 import "../css/Settings.css";
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 
 const SettingsModal = () => {
   const [open, setOpen] = useState(false);
+  const [settings, setSettings] = useAtom(settingsAtom);
 
   const handleOpen = () => {
     setOpen(true);
@@ -16,6 +19,10 @@ const SettingsModal = () => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleCheckboxChange = (setting) => (e) => {
+    setSettings({ ...settings, [setting]: e.target.checked });
   };
 
   return (
@@ -38,11 +45,51 @@ const SettingsModal = () => {
           </Typography>
           <Typography id="settings-modal-description" sx={{ mt: 2 }}>
             <FormGroup>
-              <FormControlLabel control={<Checkbox defaultChecked />} label="Avatar" />
-              <FormControlLabel control={<Checkbox defaultChecked />} label="Date" />
-              <FormControlLabel control={<Checkbox defaultChecked />} label="Info" />
-              <FormControlLabel control={<Checkbox defaultChecked />} label="Pomodoro" />
-              <FormControlLabel control={<Checkbox defaultChecked />} label="Time" />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={settings.avatar}
+                    onChange={handleCheckboxChange("avatar")}
+                  />
+                }
+                label="Avatar"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={settings.date}
+                    onChange={handleCheckboxChange("date")}
+                  />
+                }
+                label="Date"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={settings.info}
+                    onChange={handleCheckboxChange("info")}
+                  />
+                }
+                label="Info"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={settings.pomodoro}
+                    onChange={handleCheckboxChange("pomodoro")}
+                  />
+                }
+                label="Pomodoro"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={settings.time}
+                    onChange={handleCheckboxChange("time")}
+                  />
+                }
+                label="Time"
+              />
             </FormGroup>
           </Typography>
         </Box>
