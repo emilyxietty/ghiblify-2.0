@@ -3,12 +3,11 @@ import { useAtom } from "jotai";
 import React from "react";
 import "./css/App.css";
 import "./css/Widget.css";
-import Background from "./js/Bg.js";
+import Background from "./js/Background.js";
 import SettingsModal from "./js/Settings.js";
 import AvatarWidget from "./js/Widgets/Avatar.js";
 import DateWidget from "./js/Widgets/Date.js";
 import InfoWidget from "./js/Widgets/Info.js";
-// import PomodoroWidget from "./js/Widgets/Pomodoro/Timer.js";
 import PomodoroWidget from "./js/Widgets/Pomodoro.js";
 import {
   avatarAtom,
