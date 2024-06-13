@@ -1,7 +1,7 @@
 import React from "react";
 import Draggable from "react-draggable";
 import "../../css/Widget.css";
-import chi from "../../img/avatars/chi.gif";
+import chi from "../../assets/avatars/chi.gif";
 import { avatarAtom } from "../../state/atoms.js";
 import { useAtom } from "jotai";
 
