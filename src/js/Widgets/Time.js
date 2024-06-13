@@ -1,7 +1,7 @@
+import { useAtom } from "jotai";
 import React, { useEffect, useState } from "react";
 import Draggable from "react-draggable";
 import { timeAtom } from "../../state/atoms";
-import { useAtom } from "jotai";
 
 function TimeWidget() {
   const [time, setTime] = useAtom(timeAtom);

@@ -1,33 +1,36 @@
 import SettingsIcon from "@mui/icons-material/Settings";
+
 import {
   Box,
   Button,
-  Modal,
-  Typography,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Modal,
+  Typography,
 } from "@mui/material";
-import React, { useState } from "react";
 import { useAtom } from "jotai";
+import React, { useState } from "react";
 import {
   avatarAtom,
-  dateAtom,
-  infoAtom,
-  timeAtom,
   avatarAtomDefault,
+  dateAtom,
   dateAtomDefault,
+  infoAtom,
   infoAtomDefault,
+  pomodoroAtom,
+  pomodoroAtomDefault,
+  timeAtom,
   timeAtomDefault,
 } from "../state/atoms";
 
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
 import "../css/App.css";
 import "../css/Settings.css";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 
 const SettingsModal = () => {
   const [open, setOpen] = useState(false);
@@ -35,8 +38,8 @@ const SettingsModal = () => {
   const [avatar, setAvatar] = useAtom(avatarAtom);
   const [date, setDate] = useAtom(dateAtom);
   const [info, setInfo] = useAtom(infoAtom);
-  // const [pomodoro, setPomodoro] = useAtom(pomodoroAtom);
   const [time, setTime] = useAtom(timeAtom);
+  const [pomodoro, setPomodoro] = useAtom(pomodoroAtom);
 
   const handleOpen = () => {
     setOpen(true);
@@ -58,6 +61,7 @@ const SettingsModal = () => {
       setDate(dateAtomDefault);
       setInfo(infoAtomDefault);
       setTime(timeAtomDefault);
+      setPomodoro(pomodoroAtomDefault);
     }
   };
 
@@ -112,7 +116,7 @@ const SettingsModal = () => {
                 }
                 label="Info"
               />
-              {/* <FormControlLabel
+              <FormControlLabel
                 control={
                   <Checkbox
                     checked={pomodoro.toggle}
@@ -120,7 +124,7 @@ const SettingsModal = () => {
                   />
                 }
                 label="Pomodoro"
-              /> */}
+              />
               <FormControlLabel
                 control={
                   <Checkbox

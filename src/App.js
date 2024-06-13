@@ -1,12 +1,15 @@
 import { useTheme } from "@mui/material/styles";
+import { useAtom } from "jotai";
 import React from "react";
-import Background from "./js/Bg.js";
 import "./css/App.css";
 import "./css/Widget.css";
+import Background from "./js/Bg.js";
+import SettingsModal from "./js/Settings.js";
 import AvatarWidget from "./js/Widgets/Avatar.js";
 import DateWidget from "./js/Widgets/Date.js";
 import InfoWidget from "./js/Widgets/Info.js";
-import SettingsModal from "./js/Settings.js";
+// import PomodoroWidget from "./js/Widgets/Pomodoro/Timer.js";
+import PomodoroWidget from "./js/Widgets/Pomodoro.js";
 import {
   avatarAtom,
   dateAtom,
@@ -14,7 +17,6 @@ import {
   pomodoroAtom,
   timeAtom,
 } from "./state/atoms";
-import { useAtom } from "jotai";
 
 import TimeWidget from "./js/Widgets/Time.js";
 
@@ -23,7 +25,7 @@ function App() {
   const [avatar] = useAtom(avatarAtom);
   const [date] = useAtom(dateAtom);
   const [info] = useAtom(infoAtom);
-  // const [pomodoro] = useAtom(pomodoroAtom);
+  const [pomodoro] = useAtom(pomodoroAtom);
   const [time] = useAtom(timeAtom);
 
   return (
@@ -38,6 +40,8 @@ function App() {
         {time.toggle && <TimeWidget />}
         {avatar.toggle && <AvatarWidget index={0} />}
         {info.toggle && <InfoWidget MOVIE_ID={13} />}
+        {/* {<PomodoroWidget />} */}
+        {pomodoro.toggle && <PomodoroWidget />}
       </div>
     </div>
   );

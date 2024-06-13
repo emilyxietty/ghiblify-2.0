@@ -20,8 +20,8 @@ export const infoAtomDefault = {
 
 export const pomodoroAtomDefault = {
   toggle: true,
-  xPos: 0,
-  yPos: 0,
+  xPos: 1000,
+  yPos: 200,
 };
 
 export const timeAtomDefault = {
