@@ -141,13 +141,13 @@ const SettingsModal = () => {
               onClick={handleConfirmOpen}
               sx={{ mt: 2 }}
             >
-              Confirm Action
+              Reset To Default Settings
             </Button>
           </Typography>
         </Box>
       </Modal>
       <Dialog open={confirmOpen} onClose={() => handleConfirmClose(false)}>
-        <DialogTitle>Confirmation</DialogTitle>
+        <DialogTitle>Danger</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Are you sure you want to proceed?
@@ -155,10 +155,10 @@ const SettingsModal = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => handleConfirmClose(false)} color="primary">
-            Cancel
+            No
           </Button>
           <Button onClick={() => handleConfirmClose(true)} color="primary">
-            Confirm
+            Yes
           </Button>
         </DialogActions>
       </Dialog>
