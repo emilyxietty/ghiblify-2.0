@@ -1,14 +1,15 @@
 import { useTheme } from "@mui/material/styles";
 import { useAtom } from "jotai";
 import React from "react";
-import "./css/App.css";
-import "./css/Widget.css";
-import Background from "./js/Background.js";
+// import "./css/App.css";
+// import "./css/Widget.css";
+// import Background from "./js/Background.js";
+import BackgroundImage from "./atoms/BackgroundImage";
 import SettingsModal from "./js/Settings.js";
-import AvatarWidget from "./js/Widgets/Avatar.js";
-import DateWidget from "./js/Widgets/Date.js";
-import InfoWidget from "./js/Widgets/Info.js";
-import PomodoroWidget from "./js/Widgets/Pomodoro.js";
+// import AvatarWidget from "./js/Widgets/Avatar.js";
+// import DateWidget from "./js/Widgets/Date.js";
+// import InfoWidget from "./js/Widgets/Info.js";
+// import PomodoroWidget from "./js/Widgets/Pomodoro.js";
 import {
   avatarAtom,
   dateAtom,
@@ -17,7 +18,11 @@ import {
   timeAtom,
 } from "./state/atoms";
 
-import TimeWidget from "./js/Widgets/Time.js";
+// import TimeWidget from "./js/Widgets/Time.js";
+
+// TEST MATERIALS
+import "./style/app.css";
+import Test from "./Tests";
 
 function App() {
   const theme = useTheme();
@@ -29,18 +34,19 @@ function App() {
 
   return (
     <div className="App">
-      <Background />
+      {/* <Background /> */}
+      <BackgroundImage />
       <div className="Header">
         <SettingsModal />
         <div></div>
       </div>
       <div className="Widgets light">
-        {date.toggle && <DateWidget />}
+        <Test />
+        {/* {date.toggle && <DateWidget />}
         {time.toggle && <TimeWidget />}
         {avatar.toggle && <AvatarWidget index={0} />}
         {info.toggle && <InfoWidget MOVIE_ID={13} />}
-        {/* {<PomodoroWidget />} */}
-        {pomodoro.toggle && <PomodoroWidget />}
+        {pomodoro.toggle && <PomodoroWidget />} */}
       </div>
     </div>
   );

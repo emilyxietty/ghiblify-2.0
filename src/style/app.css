@@ -1,0 +1,58 @@
+/* Theme */
+:root {
+    --accent-color: #70abf8;
+    --light-accent: #f0f4ff;
+    --dark-accent: #1e213f;
+    /* --background-dark: #1e213f;
+    --background-light: #ffffff; */
+    --default-accent: #70abf8;
+    --blue-accent: #3862cb;
+    --red-accent: #f87070;
+    --yellow-accent: #ffb501;
+    --green-accent: #00d199;
+}
+
+/* General */
+
+/* Background */
+.backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+/* Buttons */
+button,
+input[type=submit] {
+    /* transition: transform 0.30s ease-in-out; */
+    color: var(--light-accent) !important;
+    border: none;
+}
+
+button:hover,
+input[type=submit]:hover {
+    cursor: pointer;
+    opacity: 0.95;
+    transition: transform 0.45s ease-in-out;
+    transform: scale(1.1);
+}
+
+button.settings,
+button.close,
+input[type=submit] {
+    background: none;
+}
+
+button.settings:hover {
+    transform: rotate(45deg);
+}
+
+button {
+    background: var(--blue-accent);
+}
